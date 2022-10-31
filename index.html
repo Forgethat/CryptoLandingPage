@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border - Wallet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=M+PLUS+1&family=Open+Sans&family=Questrial&family=Roboto&family=Space+Mono&family=Tinos&family=Work+Sans&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #4C218B
+        }
+
+        body {
+            font-family: 'M PLUS 1', sans-serif;
+            color: white;
+            background-image: url(images/gradient.svg);
+            background-size: cover;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            width: 100px;
+        }
+
+        nav ion-icon {
+            font-size: 2rem;
+        }
+
+        /* nav-list not enable on mobile */
+        nav ul,
+        li {
+            display: none;
+        }
+
+        .nav-opt {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-opt::after {
+            content: '';
+            width: 1%;
+            height: 1px;
+            background: white;
+            position: absolute;
+            bottom: 0;
+            transition: .3s;
+        }
+
+        .nav-opt:hover::after {
+            width: 100%;
+        }
+
+        #btn-wallet {
+            display: none;
+        }
+
+        /* main-hero content */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 850px;
+            margin-bottom: 2em;
+        }
+
+        #heroimg {
+            width: 200px;
+            margin: 2em;
+            -webkit-filter: drop-shadow(5px 5px 5px);
+            filter: drop-shadow(15px 15px 35px rgb(18, 85, 240));
+        }
+
+        #hero h1 {
+            text-align: center;
+            margin: 0em .5em .5em .5em;
+        }
+
+        #hero span {
+            background: linear-gradient(315deg, #3518d2, #5b18cf, #7f19cb, #a219c8, #c31ac5, #c11aa0, #be1b7b, #bb1b58);
+            -webkit-background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        #hero span::after {
+            content: '';
+            width: .01%;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: ease .6s;
+            background: linear-gradient(315deg, #3518d2, #5b18cf, #7f19cb, #a219c8, #c31ac5, #c11aa0, #be1b7b, #bb1b58);
+        }
+
+        #hero span:hover::after {
+            width: 100%;
+            transition: ease .6s;
+        }
+
+        /* Quote-unquote */
+        #hero h1::before {
+            content: open-quote;
+        }
+
+        #hero h1::after {
+            content: close-quote;
+        }
+
+        /* description and buttons */
+        #hero-footer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+        }
+
+        #hero-footer p {
+            font-size: .8rem;
+            align-items: flex-start;
+            text-align: center;
+        }
+
+        #hero-footer button {
+            background: var(--purple);
+            font-size: 1.1rem;
+            outline: none;
+            border: none;
+            padding: .81em;
+            margin: 2em;
+            margin-bottom: .2em;
+            color: white;
+            font-family: 'M PLUS 1', sans-serif;
+            border-radius: 1.1em;
+            transition: .4s;
+        }
+
+        #hero-footer button:hover {
+            -webkit-box-shadow: inset 0 0 3px #fff;
+        }
+
+        /* create account link */
+        #hero-footer p:nth-child(3) {
+            align-self: center;
+        }
+
+        /* center */
+        .container {
+            width: 90%;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        a {
+            color: white;
+        }
+        #hero-form {
+            display: none;
+        }
+
+        /* Media Queries */
+        @media screen and (min-width: 768px) {
+            nav ion-icon {
+                display: none;
+            }
+
+            input {
+                display: block;
+            }
+
+            ul,
+            li {
+                display: block;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 2em;
+                padding: .5em;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex;
+                align-items: center;
+                gap: 2em;
+            }
+
+            nav ul li {
+                min-height: .5em;
+            }
+
+            #btn-wallet {
+                display: block;
+                padding: .7em 1em;
+                background: var(--purple);
+                color: white;
+                border: none;
+                transition: .6s;
+            }
+
+            #btn-wallet:hover {
+                -webkit-box-shadow: inset 0 0 3px #fff;
+            }
+
+            #heroimg {
+                width: 350px;
+                align-self: flex-start;
+            }
+
+            #hero {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin: 2em 0px;
+            }
+
+            #hero h1 {
+                font-size: 1.5rem;
+            }
+
+            #hero p {}
+
+            #hero-footer-list ul,
+            li {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                min-height: 5em;
+                gap: 1em;
+            }
+
+            #hero-header {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+            }
+
+            #hero-form {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-end;
+            }
+
+            .search {
+                display: flex;
+                align-self: center;
+                margin-top: 2em;
+                padding: .5em 3em;
+            }
+        }
+
+        @media screen and (min-width: 911px) {
+            #hero-main h1 {
+                font-size: 2.0rem;
+            }
+
+            #hero p {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            body {
+                font-size: 1.3rem;
+            }
+
+            nav img {
+                width: 150px;
+            }
+
+            #hero {
+                max-width: none;
+            }
+
+            #hero-main p {
+                font-size: 1.3rem;
+            }
+
+            #hero-footer button {
+                width: 50%;
+                align-self: center;
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            body {
+                font-size: 2rem;
+            }
+
+            nav {
+                font-size: 1.5rem;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <img src="../images/Border-Color.svg" alt="">
+                <ion-icon name="menu-outline"></ion-icon>
+                <!-- Not available on mobile -->
+                <ul>
+                    <li class="nav-opt">Home</li>
+                    <li class="nav-opt">About</li>
+                    <li class="nav-opt">Collection</li>
+                    <li class="nav-opt">Blog</li>
+                    <li class="nav-opt">Contact</li>
+                </ul>
+                <button id="btn-wallet">CONNECT TO WALLET</button>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <div id="hero">
+                        <div id="hero-header">
+                            <img id="heroimg" src="../images/neonhexagon_.png" alt="">
+                        </div>
+                        <div id="hero-main">
+                            <h1><span>Cryptocurrencies</span> is getting you reasons to believe in it everyday</h1>
+                            <div id="hero-footer">
+                                <p>Explore the new world behind the digital art</p>
+                                <button>LOGIN</button>
+                                <p>Or <a href="/">create an account</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section>
+            </section>
+        </main>
+        <footer></footer>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </div>
+</body>
+
+</html>
